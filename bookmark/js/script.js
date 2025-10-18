@@ -1,11 +1,27 @@
 const tabs = document.querySelectorAll('.tab')
 const panels = document.querySelectorAll('.panel')
-
+const btn = document.getElementById('menu-btn')
+const menu = document.getElementById('menu')
+const logo = document.getElementById('logo')
 
 // tabs menu event listener
 tabs.forEach((tab) => {
     tab.addEventListener('click', onTabClick)
 })
+
+btn.addEventListener('click', navToggle)
+
+function navToggle() {
+    btn.classList.toggle('open')
+    menu.classList.toggle('flex')
+    menu.classList.toggle('hidden')
+
+    if (menu.classList.contains('flex')) {
+        logo.setAttribute('src', './images/logo-bookmark-footer.svg')
+    } else {
+        logo.setAttribute('src', './images/logo-bookmark.svg')
+    }
+}
 
 function onTabClick(e) {
     // deactivate all tabs
